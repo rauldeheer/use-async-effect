@@ -1,16 +1,16 @@
 # use-async-effect
 Use the async await syntax in the React useEffect hook!
 
-####Installation:
+Installation:
 
 `npm install use-async-effect`
 
-####Example:
+Example:
 
 ```javascript
 useAsyncEffect(async () => console.log('mount'), () => console.log('unmount'), []);
 ```
 
-####Roadmap:
+Roadmap:
 
 - [ ] Typescript support.
