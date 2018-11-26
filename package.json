@@ -1,0 +1,31 @@
+{
+  "name": "use-async-effect",
+  "version": "1.0.0",
+  "description": "This package allows you to use the useEffect hook from React with the async await syntax",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rauldeheer/use-async-effect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rauldeheer/use-async-effect/issues"
+  },
+  "homepage": "https://github.com/rauldeheer/use-async-effect",
+  "keywords": [
+    "react",
+    "hooks",
+    "useEffect",
+    "async",
+    "await",
+    "use-async-effect"
+  ],
+  "author": "Raul de Heer",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.7.0"
+  },
+  "devDependencies": {
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
+  }
+}
