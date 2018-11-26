@@ -1,5 +1,7 @@
+[![npm version](https://badge.fury.io/js/use-async-effect.svg)](https://www.npmjs.com/package/use-async-effect)
+
 # use-async-effect
-Use the async await syntax in the React useEffect hook!
+:running: Asynchronous side effects, without the nonsense
 
 Installation:
 
