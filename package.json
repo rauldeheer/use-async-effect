@@ -1,6 +1,6 @@
 {
   "name": "use-async-effect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package allows you to use the useEffect hook from React with the async await syntax",
   "main": "index.js",
   "repository": {
