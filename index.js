@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+const { useEffect } = require('react');
 
 module.exports.useAsyncEffect = (effect, destroy, inputs) => {
   useEffect(() => {
