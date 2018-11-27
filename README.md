@@ -15,4 +15,4 @@ useAsyncEffect(async () => console.log('mount'), () => console.log('unmount'), [
 
 Roadmap:
 
-- [ ] Typescript support.
+- [x] Typescript support.
