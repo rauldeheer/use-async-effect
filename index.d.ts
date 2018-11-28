@@ -1,5 +1,3 @@
 declare module 'use-async-effect' {
-  import { InputIdentityList } from 'react';
-
-  export function useAsyncEffect(effect: () => Promise<void>, destroy?: () => void, inputs?: InputIdentityList): void;
+  export function useAsyncEffect<V>(effect: () => Promise<V>, destroy?: (result?: V) => void, inputs?: any[]): void;
 }
