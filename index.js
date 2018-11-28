@@ -2,8 +2,9 @@ const { useEffect } = require('react');
 
 module.exports.useAsyncEffect = (effect, destroy, inputs) => {
   useEffect(() => {
-    effect();
+    let result;
+    effect().then((value) => result = value);
 
-    return destroy;
+    return () => destroy(result);
   }, inputs);
 };
