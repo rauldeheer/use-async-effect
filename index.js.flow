@@ -1,7 +1,7 @@
 declare module 'use-async-effect' {
-  declare module.exports: <V>(
+  declare function useAsyncEffect<V>(
     effect: () => Promise<V>,
     destroy?: ?(result?: V) => void,
     inputs?: any[]
-  ) => void;
+  ): void;
 }
