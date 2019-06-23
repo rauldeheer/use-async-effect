@@ -1,12 +1,14 @@
 const { useEffect } = require('react');
 
 module.exports.useAsyncEffect = (effect, destroy, inputs) => {
+  const hasDestroy = typeof destroy === 'function';
+
   useEffect(() => {
     let result;
     effect().then((value) => result = value);
-    
-    if(typeof destroy === 'function'){
+
+    if (hasDestroy) {
       return () => destroy(result);
     }
-  }, inputs);
+  }, hasDestroy ? inputs : destroy);
 };

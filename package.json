@@ -1,9 +1,14 @@
 {
   "name": "use-async-effect",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Asynchronous side effects, without the nonsense",
   "main": "index.js",
-  "typings": "index.d.ts",
+  "typings": "types",
+  "scripts": {
+    "ts": "dtslint types",
+    "flow": "flow check",
+    "prepublishOnly": "npm run ts && npm run flow"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rauldeheer/use-async-effect.git"
@@ -21,10 +26,13 @@
   "author": "Raul de Heer",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.7.0"
+    "react": "^16.8.0"
   },
   "devDependencies": {
-    "@types/react": "^16.7.7",
-    "react": "^16.7.0-alpha.2"
+    "@types/react": "^16.8.22",
+    "dtslint": "^0.8.0",
+    "flow-bin": "^0.101.1",
+    "react": "^16.8.6",
+    "typescript": "^3.5.2"
   }
 }
