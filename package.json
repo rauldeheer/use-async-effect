@@ -29,10 +29,10 @@
     "react": "^16.8.0"
   },
   "devDependencies": {
-    "@types/react": "^16.8.22",
+    "@types/react": "^16.8.23",
     "dtslint": "^0.8.0",
     "flow-bin": "^0.101.1",
     "react": "^16.8.6",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }
