@@ -1,7 +1,14 @@
 [![npm version](https://badge.fury.io/js/use-async-effect.svg)](https://www.npmjs.com/package/use-async-effect)
 
 # use-async-effect
+
 :running: Asynchronous side effects, without the nonsense
+
+```javascript
+useAsyncEffect(async () => {
+  await doSomethingAsync();
+});
+```
 
 ## Installation
 
@@ -14,6 +21,36 @@ yarn add use-async-effect
 ```
 
 This package includes TypeScript and Flow types.
+
+## API
+
+The API is the same as React's `useEffect()`, except for some notable differences:
+
+- The destroy function is passed as the second argument
+- The main function receives an `isMounted()`, which every time it's called will check for the status.
+
+This hook signatures are:
+
+```javascript
+useAsyncEffect(callback, dependencies);
+useAsyncEffect(callback, onUnmount, dependencies);
+```
+
+The async callback will receive a single function to check whether the component is still mounted:
+
+```javascript
+useAsyncEffect(async isMounted => {
+  const data1 = await fn1();
+  if (!isMounted()) return;
+
+  const data2 = await fn2();
+  if (!isMounted()) return;
+
+  doSomething(data1, data2);
+});
+```
+
+
 
 ## Examples
 
@@ -30,4 +67,22 @@ useAsyncEffect(async () => console.log('mount'), []);
 Handle effect result in destroy
 ```javascript
 useAsyncEffect(() => fetch('url'), (result) => console.log(result));
+```
+
+Making sure it's still mounted before updating component state:
+
+```javascript
+const User = () => 
+  const [user, setUser] = useState(false);
+
+  useAsyncEffect(async isMounted => {
+    const data = await fetch(`/users/${id}`).then(res => res.json());
+    // Add a check to make sure it's still mounted before updating
+    if (!isMounted()) return;
+    setUser(data);
+  }, [id]);
+
+  if (!user) return null;
+  return <div>{user.name}</div>;
+};
 ```
