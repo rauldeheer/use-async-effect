@@ -72,7 +72,7 @@ useAsyncEffect(() => fetch('url'), (result) => console.log(result));
 Making sure it's still mounted before updating component state:
 
 ```javascript
-const User = () => 
+const User = () => {
   const [user, setUser] = useState(false);
 
   useAsyncEffect(async isMounted => {
