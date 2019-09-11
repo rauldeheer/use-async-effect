@@ -7,10 +7,12 @@ module.exports.useAsyncEffect = (effect, destroy, inputs) => {
   useEffect(() => {
     let result;
     const maybePromise = effect(() => mounted.current);
+
     Promise.resolve(maybePromise).then((value) => result = value);
 
     return () => {
       mounted.current = false;
+
       if (hasDestroy) {
         destroy(result);
       }

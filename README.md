@@ -20,23 +20,20 @@ or
 yarn add use-async-effect
 ```
 
-This package includes TypeScript and Flow types.
+This package ships with TypeScript and Flow types.
 
 ## API
 
 The API is the same as React's `useEffect()`, except for some notable differences:
 
-- The destroy function is passed as the second argument
-- The main function receives an `isMounted()`, which every time it's called will check for the status.
-
-This hook signatures are:
+- The destroy function is passed as an optional second argument:
 
 ```javascript
-useAsyncEffect(callback, dependencies);
-useAsyncEffect(callback, onUnmount, dependencies);
+useAsyncEffect(callback, dependencies?);
+useAsyncEffect(callback, onDestroy, dependencies?);
 ```
 
-The async callback will receive a single function to check whether the component is still mounted:
+- The async callback will receive a single function to check whether the component is still mounted:
 
 ```javascript
 useAsyncEffect(async isMounted => {
@@ -69,20 +66,11 @@ Handle effect result in destroy
 useAsyncEffect(() => fetch('url'), (result) => console.log(result));
 ```
 
-Making sure it's still mounted before updating component state:
-
+Making sure it's still mounted before updating component state
 ```javascript
-const User = () => {
-  const [user, setUser] = useState(false);
-
-  useAsyncEffect(async isMounted => {
-    const data = await fetch(`/users/${id}`).then(res => res.json());
-    // Add a check to make sure it's still mounted before updating
-    if (!isMounted()) return;
-    setUser(data);
-  }, [id]);
-
-  if (!user) return null;
-  return <div>{user.name}</div>;
-};
+useAsyncEffect(async isMounted => {
+  const data = await fetch(`/users/${id}`).then(res => res.json());
+  if (!isMounted()) return;
+  setUser(data);
+}, [id]);
 ```

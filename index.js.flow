@@ -1,5 +1,12 @@
 declare module 'use-async-effect' {
-  declare function useAsyncEffect(effect: () => Promise<any>, inputs?: any[]): void;
+  declare function useAsyncEffect(
+    effect: (isMounted: () => boolean) => any | Promise<any>,
+    inputs?: any[]
+  ): void;
 
-  declare function useAsyncEffect<V>(effect: () => Promise<V>, destroy?: ?(result?: V) => void, inputs?: any[]): void;
+  declare function useAsyncEffect<V>(
+    effect: (isMounted: () => boolean) => V | Promise<V>,
+    destroy?: ?(result?: V) => void,
+    inputs?: any[]
+  ): void;
 }
