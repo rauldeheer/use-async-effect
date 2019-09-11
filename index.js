@@ -1,4 +1,3 @@
-
 const { useEffect, useRef } = require("react");
 
 const useAsyncEffect = (effect, destroy, inputs) => {
