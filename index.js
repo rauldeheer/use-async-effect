@@ -1,11 +1,13 @@
-const { useEffect, useRef } = require("react");
+const { useEffect, useRef } = require('react');
 
 const useAsyncEffect = (effect, destroy, inputs) => {
-  const hasDestroy = typeof destroy === "function";
-  const mounted = useRef(true);
+  const hasDestroy = typeof destroy === 'function';
+  const mounted = useRef();
 
   useEffect(
     () => {
+      mounted.current = true;
+
       let result;
       const maybePromise = effect(() => mounted.current);
 
@@ -13,18 +15,16 @@ const useAsyncEffect = (effect, destroy, inputs) => {
         result = value;
       });
 
-      if (hasDestroy) return () => destroy(result);
+      return () => {
+        mounted.current = false;
+
+        if (hasDestroy) {
+          destroy(result);
+        }
+      };
     },
     hasDestroy ? inputs : destroy
   );
-
-  // This will only happen when the component is unmounted,
-  // not when the dependencies change
-  useEffect(() => {
-    return () => {
-      mounted.current = false;
-    };
-  }, []);
 };
 
 module.exports = useAsyncEffect;
