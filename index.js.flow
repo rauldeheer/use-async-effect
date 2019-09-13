@@ -9,4 +9,6 @@ declare module 'use-async-effect' {
     destroy?: ?(result?: V) => void,
     inputs?: any[]
   ): void;
+
+  declare export default useAsyncEffect;
 }

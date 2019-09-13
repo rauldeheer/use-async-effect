@@ -9,3 +9,5 @@ export function useAsyncEffect<V>(
   destroy?: (result?: V) => void,
   inputs?: any[]
 ): void;
+
+export default useAsyncEffect;

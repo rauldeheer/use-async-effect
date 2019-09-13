@@ -1,10 +1,13 @@
-import { useAsyncEffect } from 'use-async-effect';
+import useEffect, { useAsyncEffect } from 'use-async-effect';
 
 // $ExpectError
 useAsyncEffect();
 
 // $ExpectType void
 useAsyncEffect((isMounted) => {});
+
+// $ExpectType void
+useEffect(async () => {});
 
 // $ExpectType void
 useAsyncEffect(async () => {});
