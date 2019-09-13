@@ -7,6 +7,7 @@
   "scripts": {
     "ts": "dtslint types",
     "flow": "flow check",
+    "prettier": "prettier --single-quote --write index.js",
     "prepublishOnly": "npm run ts && npm run flow"
   },
   "repository": {
@@ -32,6 +33,7 @@
     "@types/react": "^16.9.2",
     "dtslint": "^0.9.6",
     "flow-bin": "^0.107.0",
+    "prettier": "^1.18.2",
     "react": "^16.9.0",
     "typescript": "^3.6.3"
   }
