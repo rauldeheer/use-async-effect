@@ -2,7 +2,7 @@
 
 # use-async-effect
 
-:running: Asynchronous side effects, without the nonsense
+:running: Asynchronous side effects, without the nonsense.
 
 ```javascript
 useAsyncEffect(async () => {
@@ -46,8 +46,6 @@ useAsyncEffect(async isMounted => {
   doSomething(data1, data2);
 });
 ```
-
-
 
 ## Examples
 
