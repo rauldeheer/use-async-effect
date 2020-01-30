@@ -1,30 +1,30 @@
-const { useEffect, useRef } = require('react');
+'use strict';
 
-const useAsyncEffect = (effect, destroy, inputs) => {
-  const hasDestroy = typeof destroy === 'function';
+var React = require('react');
 
-  useEffect(
-    () => {
-      let result;
-      let mounted = true;
+function useAsyncEffect(effect, destroy, inputs) {
+  var hasDestroy = typeof destroy === 'function';
 
-      const maybePromise = effect(() => mounted);
+  React.useEffect(function () {
+    var result;
+    var mounted = true;
+    var maybePromise = effect(function () {
+      return mounted;
+    });
 
-      Promise.resolve(maybePromise).then(value => {
-        result = value;
-      });
+    Promise.resolve(maybePromise).then(function (value) {
+      result = value;
+    });
 
-      return () => {
-        mounted = false;
+    return function () {
+      mounted = false;
 
-        if (hasDestroy) {
-          destroy(result);
-        }
-      };
-    },
-    hasDestroy ? inputs : destroy
-  );
-};
+      if (hasDestroy) {
+        destroy(result);
+      }
+    };
+  }, hasDestroy ? inputs : destroy);
+}
 
 module.exports = useAsyncEffect;
 module.exports.useAsyncEffect = useAsyncEffect;
