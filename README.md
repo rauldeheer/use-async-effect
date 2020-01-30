@@ -1,5 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/rauldeheer/use-async-effect/master/logo.svg?sanitize=true)
 [![npm version](https://badge.fury.io/js/use-async-effect.svg)](https://www.npmjs.com/package/use-async-effect)
+[![license](https://badgen.net/npm/license/use-async-effect)](./LICENSE)
 
 ---
 
