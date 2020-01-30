@@ -1,6 +1,7 @@
+![Logo](https://raw.githubusercontent.com/rauldeheer/use-async-effect/master/logo.svg?sanitize=true)
 [![npm version](https://badge.fury.io/js/use-async-effect.svg)](https://www.npmjs.com/package/use-async-effect)
 
-# use-async-effect
+---
 
 :running: Asynchronous side effects, without the nonsense.
 
