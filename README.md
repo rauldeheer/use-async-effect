@@ -35,19 +35,21 @@ useAsyncEffect(callback, dependencies?);
 useAsyncEffect(callback, onDestroy, dependencies?);
 ```
 
-- The async callback will receive a single function to check whether the component is still mounted:
+- The async callback will receive a single function to check whether the callback is still active:
 
 ```javascript
-useAsyncEffect(async isMounted => {
+useAsyncEffect(async isActive => {
   const data1 = await fn1();
-  if (!isMounted()) return;
+  if (!isActive()) return;
 
   const data2 = await fn2();
-  if (!isMounted()) return;
+  if (!isActive()) return;
 
   doSomething(data1, data2);
 });
 ```
+
+> Active means that it's running in the current component. It can become inactive if the component is unmounted, or if the component is re-rendered and the callback is dropped and a new one is called.
 
 ## Examples
 
@@ -66,11 +68,11 @@ Handle effect result in destroy
 useAsyncEffect(() => fetch('url'), (result) => console.log(result));
 ```
 
-Making sure it's still mounted before updating component state
+Making sure it's still active before updating component state
 ```javascript
-useAsyncEffect(async isMounted => {
+useAsyncEffect(async isActive => {
   const data = await fetch(`/users/${id}`).then(res => res.json());
-  if (!isMounted()) return;
+  if (!isActive()) return;
   setUser(data);
 }, [id]);
 ```
