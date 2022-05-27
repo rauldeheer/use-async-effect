@@ -7,6 +7,8 @@
 :running: Asynchronous side effects, without the nonsense.
 
 ```javascript
+import useAsyncEffect from 'use-async-effect';
+
 useAsyncEffect(async () => {
   await doSomethingAsync();
 });
