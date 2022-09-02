@@ -38,12 +38,12 @@ useAsyncEffect(callback, onDestroy, dependencies?);
 - The async callback will receive a single function to check whether the callback is still active:
 
 ```javascript
-useAsyncEffect(async isActive => {
+useAsyncEffect(async isMounted => {
   const data1 = await fn1();
-  if (!isActive()) return;
+  if (!isMounted()) return;
 
   const data2 = await fn2();
-  if (!isActive()) return;
+  if (!isMounted()) return;
 
   doSomething(data1, data2);
 });
@@ -70,9 +70,9 @@ useAsyncEffect(() => fetch('url'), (result) => console.log(result));
 
 Making sure it's still active before updating component state
 ```javascript
-useAsyncEffect(async isActive => {
+useAsyncEffect(async isMounted => {
   const data = await fetch(`/users/${id}`).then(res => res.json());
-  if (!isActive()) return;
+  if (!isMounted()) return;
   setUser(data);
 }, [id]);
 ```

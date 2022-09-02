@@ -4,7 +4,7 @@ import useEffect, { useAsyncEffect } from 'use-async-effect';
 useAsyncEffect();
 
 // $ExpectType void
-useAsyncEffect((isActive) => {});
+useAsyncEffect((isMounted) => {});
 
 // $ExpectType void
 useEffect(async () => {});

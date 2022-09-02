@@ -1,11 +1,11 @@
 declare module 'use-async-effect' {
   declare function useAsyncEffect(
-    effect: (isActive: () => boolean) => any | Promise<any>,
+    effect: (isMounted: () => boolean) => any | Promise<any>,
     inputs?: any[]
   ): void;
 
   declare function useAsyncEffect<V>(
-    effect: (isActive: () => boolean) => V | Promise<V>,
+    effect: (isMounted: () => boolean) => V | Promise<V>,
     destroy?: ?(result?: V) => void,
     inputs?: any[]
   ): void;
