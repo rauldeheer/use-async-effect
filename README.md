@@ -76,3 +76,23 @@ useAsyncEffect(async isMounted => {
   setUser(data);
 }, [id]);
 ```
+
+## Linting dependencies list using `ESLint`
+
+The `react-hooks/exhaustive-deps` rule allows you to check your custom hooks. 
+From the [Advanced Configuration](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#advanced-configuration) options:
+> `exhaustive-deps` can be configured to validate dependencies of custom Hooks with the `additionalHooks` option. This option accepts a regex to match the names of custom Hooks that have dependencies.
+
+```json
+{
+  "rules": {
+    // ...
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useAsyncEffect|useMyOtherCustomHook)"
+      }
+    ]
+  }
+}
+```
