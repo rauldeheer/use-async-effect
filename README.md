@@ -83,6 +83,8 @@ The `react-hooks/exhaustive-deps` rule allows you to check your custom hooks.
 From the [Advanced Configuration](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#advanced-configuration) options:
 > `exhaustive-deps` can be configured to validate dependencies of custom Hooks with the `additionalHooks` option. This option accepts a regex to match the names of custom Hooks that have dependencies.
 
+‼️ Unfortunately, `react-hooks/rules-of-hooks` isn't configurable and the "Effect callbacks are synchronous to prevent race conditions. Put the async function inside" warning will be displayed.
+
 ```json
 {
   "rules": {
